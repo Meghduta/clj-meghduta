@@ -12,4 +12,4 @@
   (testing "JSON Stream to Map conversion"
     (is (=
           {"message" "Andromeda"}
-          (stream-to-json (io/input-stream (.getBytes "{\"message\": \"Andromeda\" }")))))))
+          (stream-to-map (io/input-stream (.getBytes "{\"message\": \"Andromeda\" }")))))))

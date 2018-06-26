@@ -2,7 +2,7 @@
     (:require [cheshire.core :as cheshire])
     (:import (java.io InputStreamReader BufferedReader)))
 
-(defn stream-to-json [stream] 
+(defn stream-to-map [stream]
     (-> (new BufferedReader (new InputStreamReader stream))
     (cheshire/parse-stream)))
 

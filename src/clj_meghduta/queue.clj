@@ -16,7 +16,7 @@
     {:body "Message Queued"}))
 
 (defn validate-and-push [req]
-  (let [input (util/stream-to-json (:body req))
+  (let [input (util/stream-to-map (:body req))
         validation-result (schema/validate schema/queue-push-input input)]
     (if validation-result
       (push input)
@@ -30,7 +30,7 @@
     {:body (util/map-to-json {"message" message})}))
 
 (defn validate-and-pull [req]
-  (let [input (util/stream-to-json (:body req))
+  (let [input (util/stream-to-map (:body req))
         validation-result (schema/validate schema/queue-pull-input input)]
     (if validation-result
       (pull input)
